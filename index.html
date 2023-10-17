@@ -101,11 +101,15 @@
         <label for="atencion">Tasa de servicio (μ):</label>
         <input type="text" id="atencion" required placeholder="Tasa de servicio por hora por servidor">
         <div class="seleccion">
-            <input class="" type="radio" name="modelo" required id="gridRadios1" value="MGM" checked>
+
+            <input class="" type="radio" name="modelo" required id="gridRadios1" value="MGM" onclick="redireccionar()" checked>
             <label for="gridRadios1">MGM</label>
-            <input class="" type="radio" name="modelo" required id="gridRadios2" value="MMC">
-            <label for="gridRadios2">MMC</label>
+            
+            <input class="" type="radio" name="modelo" required id="gridRadios2" value="MMC" onclick="redireccionar()" checked>
+            <label for="gridRadios2">MCM</label>
+            
           </div>
+          
         <button onclick="calcularMMCC()"><span>Calcular</span></button>
         <h2>Resultados:</h2>
         <p>Cantidad de clientes en la cola (Lq): <span id="clientesEnCola"></span></p>
@@ -164,14 +168,22 @@
             }
             return n * factorial(n - 1);
         }
-        const funcion2 = (Math.pow(rho,atencion)) / (factorial(servidores))
-        function sigma(funcion, desde, hasta) {
-        let resultado = 0;
-        for (let i = desde; i <= hasta; i++) {
-            resultado += funcion(i);
+     
+        function redireccionar() {
+            // Obtén el valor seleccionado del radio
+            var radioValue = document.querySelector('input[name="modelo"]:checked').value;
+
+            if (radioValue === 'MMC') {
+                // Redirecciona a la página deseada
+                window.location.href = '../index.html';
+            }
+
+            if (radioValue == 'MGM'){
+                window.location.href = '../mg1.html'
+            }
         }
-        return resultado;
-        }
+
+
     </script>
 </body>
 </html>
