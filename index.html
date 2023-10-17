@@ -58,9 +58,7 @@
         </div>
         <div class="card-client">
             <div class="user-picture">
-                <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path>
-                </svg>
+                <img src="jose.jpeg" alt="">
             </div>
             <p class="name-client"> Jose Luis Robles
                 <span>Escritor
@@ -111,11 +109,11 @@
         <button onclick="calcularMMCC()"><span>Calcular</span></button>
         <h2>Resultados:</h2>
         <p>Cantidad de clientes en la cola (Lq): <span id="clientesEnCola"></span></p>
-        <p>Probabilidad de que el sistema esté vacío (P0): <span id="probabilidadSistemaVacio">-</span></p>
+        <p>Probabilidad de que el sistema esté vacío (P0): <span id="probabilidadSistemaVacio"></span></p>
         <p>Tiempo promedio que un cliente espera en el sistema (W): <span id="tiempoEsperaPromedio"> </span></p>
-        <p>Tiempo promedio de espera en la cola (Wq): <span id="tiempoEsperaCola">-</span></p>
-        <p>Porcentaje de uso del servidor (ρ): <span id="usoServidor"></span>-</p>
-        <p>Cuantos clientes hay en el sistema (ls): <span id="clientesSistema">-</span></p>
+        <p>Tiempo promedio de espera en la cola (Wq): <span id="tiempoEsperaCola"></span></p>
+        <p>Porcentaje de uso del servidor (ρ): <span id="usoServidor"></span></p>
+        <p>Cuantos clientes hay en el sistema (ls): <span id="clienestesistema"></span></p>
     </div>
 </body>
 </html>
@@ -136,14 +134,14 @@
 
             const W = Ls / llegada;
 
-            const su =
+         
 
-            document.getElementById("clientesEnCola").textContent = Lq.toFixed(4);
+            document.getElementById("clientesEnCola").textContent = Lq.toFixed(4) + " Clientes";
             document.getElementById("probabilidadSistemaVacio").textContent = P0().toFixed(4);
-            document.getElementById("tiempoEsperaPromedio").textContent = (W.toFixed(4));
-            document.getElementById("tiempoEsperaCola").textContent = Wq.toFixed(4);
-            document.getElementById("usoServidor").textContent = (rho * 100).toFixed(2) + "%";
-            document.getElementById("clienestesistema").textContent = Ls.toFixed(4);
+            document.getElementById("tiempoEsperaPromedio").textContent = (W.toFixed(4)) + " Horas - " + (60 * W.toFixed(4)) + " Minutos";
+            document.getElementById("tiempoEsperaCola").textContent =(Wq.toFixed(4)) + " Horas - " + (60 * Wq.toExponential(4)) + " Minutos";
+            document.getElementById("usoServidor").textContent = ((1-P0()) * 100).toFixed(2) + "%";
+            document.getElementById("clienestesistema").textContent = Ls.toFixed(4) + " Clientes";
         }
 
         function P0() {
