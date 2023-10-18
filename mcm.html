@@ -214,8 +214,8 @@ https://templatemo.com/tm-559-zay-shop
 
             document.getElementById("clientesEnCola").textContent = Lq.toFixed(2) + " Clientes";
             document.getElementById("probabilidadSistemaVacio").textContent = P0().toFixed(4);
-            document.getElementById("tiempoEsperaPromedio").textContent = (W.toFixed(2)) + " Horas - " + (60 * W.toFixed(2)) + " Minutos";
-            document.getElementById("tiempoEsperaCola").textContent =(Wq.toFixed(2)) + " Horas - " + (60 * Wq.toExponential(2)) + " Minutos";
+            document.getElementById("tiempoEsperaPromedio").textContent = (W.toFixed(2)) + " Horas - " + (60 * W).toFixed(2) + " Minutos";
+            document.getElementById("tiempoEsperaCola").textContent =(Wq.toFixed(2)) + " Horas - " + (60 * Wq.toExponential(2)).toFixed(2) + " Minutos";
             document.getElementById("usoServidor").textContent = ((1-P0()) * 100).toFixed(2) + "%";
             document.getElementById("clienestesistema").textContent = Ls.toFixed(2) + " Clientes";
         }
