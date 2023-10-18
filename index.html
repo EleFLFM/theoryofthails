@@ -103,27 +103,31 @@
         <div class="seleccion">
 
             <input class="" type="radio" name="modelo" required id="gridRadios1" value="MGM" onclick="redireccionar()" checked>
-            <label for="gridRadios1">MGM</label>
+            <label for="gridRadios1">MG1</label>
             
             <input class="" type="radio" name="modelo" required id="gridRadios2" value="MMC" onclick="redireccionar()" checked>
             <label for="gridRadios2">MCM</label>
+
+            <input class="" type="radio" name="modelo" required id="gridRadios3" value="MM1" onclick="redireccionar()" checked>
+            <label for="gridRadios3">MM1</label>
             
           </div>
           
-        <button onclick="calcularMMCC()"><span>Calcular</span></button>
+        <button onclick="calcularMMC()"><span>Calcular</span></button>
         <h2>Resultados:</h2>
+        <p>Cuantos clientes hay en el sistema (Ls): <span id="clienestesistema"></span></p>
         <p>Cantidad de clientes en la cola (Lq): <span id="clientesEnCola"></span></p>
         <p>Probabilidad de que el sistema esté vacío (P0): <span id="probabilidadSistemaVacio"></span></p>
         <p>Tiempo promedio que un cliente espera en el sistema (W): <span id="tiempoEsperaPromedio"> </span></p>
         <p>Tiempo promedio de espera en la cola (Wq): <span id="tiempoEsperaCola"></span></p>
         <p>Porcentaje de uso del servidor (ρ): <span id="usoServidor"></span></p>
-        <p>Cuantos clientes hay en el sistema (ls): <span id="clienestesistema"></span></p>
+       
     </div>
 </body>
 </html>
 
     <script>
-        function calcularMMCC() {
+        function calcularMMC() {
             const llegada = parseFloat(document.getElementById("llegada").value);
             const servidores = parseInt(document.getElementById("servidores").value);
             const atencion = parseFloat(document.getElementById("atencion").value);
@@ -137,15 +141,16 @@
             const Ls =  ((llegada * atencion * Math.pow(rho,servidores) * P0() / ((servidores-1)* (Math.pow(((servidores*atencion)-llegada),servidores)))) + rho);
 
             const W = Ls / llegada;
-
+            
+       
          
 
-            document.getElementById("clientesEnCola").textContent = Lq.toFixed(4) + " Clientes";
+            document.getElementById("clientesEnCola").textContent = Lq.toFixed(2) + " Clientes";
             document.getElementById("probabilidadSistemaVacio").textContent = P0().toFixed(4);
-            document.getElementById("tiempoEsperaPromedio").textContent = (W.toFixed(4)) + " Horas - " + (60 * W.toFixed(4)) + " Minutos";
-            document.getElementById("tiempoEsperaCola").textContent =(Wq.toFixed(4)) + " Horas - " + (60 * Wq.toExponential(4)) + " Minutos";
+            document.getElementById("tiempoEsperaPromedio").textContent = (W.toFixed(2)) + " Horas - " + (60 * W.toFixed(2)) + " Minutos";
+            document.getElementById("tiempoEsperaCola").textContent =(Wq.toFixed(2)) + " Horas - " + (60 * Wq.toExponential(2)) + " Minutos";
             document.getElementById("usoServidor").textContent = ((1-P0()) * 100).toFixed(2) + "%";
-            document.getElementById("clienestesistema").textContent = Ls.toFixed(4) + " Clientes";
+            document.getElementById("clienestesistema").textContent = Ls.toFixed(2) + " Clientes";
         }
 
         function P0() {
@@ -180,6 +185,10 @@
 
             if (radioValue == 'MGM'){
                 window.location.href = '../mg1.html'
+            }
+
+            if (radioValue == 'MM1'){
+                window.location.href = '../mm1.html'
             }
         }
 
