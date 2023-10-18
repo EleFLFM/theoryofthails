@@ -102,19 +102,18 @@
         <input type="text" id="atencion" required placeholder="Tasa de servicio por hora por servidor">
         <div class="seleccion">
 
-
-            <input class="" type="radio" name="modelo" required id="gridRadios1" value="MGM" onclick="redireccionar()" >
-            <label for="gridRadios1">MGM</label>
+            <input class="" type="radio" name="modelo" required id="gridRadios1" value="MG1" onclick="redireccionar()">
+            <label for="gridRadios1">MG1</label>
             
-            <input class="" type="radio" name="modelo" required id="gridRadios2" value="MMC" onclick="redireccionar()" checked>
+            <input class="" type="radio" name="modelo" required id="gridRadios2" value="MCM" onclick="redireccionar()"Checked>
             <label for="gridRadios2">MCM</label>
 
-            <input class="" type="radio" name="modelo" required id="gridRadios3" value="MM1" onclick="redireccionar()" >
+            <input class="" type="radio" name="modelo" required id="gridRadios3" value="MM1" onclick="redireccionar()">
             <label for="gridRadios3">MM1</label>
             
           </div>
           
-        <button onclick="calcularMMC()"><span>Calcular</span></button>
+        <button onclick="calcularMCM()"><span>Calcular</span></button>
         <h2>Resultados:</h2>
         <p>Cuantos clientes hay en el sistema (Ls): <span id="clienestesistema"></span></p>
         <p>Cantidad de clientes en la cola (Lq): <span id="clientesEnCola"></span></p>
@@ -128,7 +127,7 @@
 </html>
 
     <script>
-        function calcularMMC() {
+        function calcularMCM() {
             const llegada = parseFloat(document.getElementById("llegada").value);
             const servidores = parseInt(document.getElementById("servidores").value);
             const atencion = parseFloat(document.getElementById("atencion").value);
@@ -181,18 +180,16 @@
 
             if (radioValue === 'MMC') {
                 // Redirecciona a la página deseada
-                window.location.href = '../index.html';
+                window.location.href = '../mmc.html';
             }
 
-            if (radioValue == 'MGM'){
+            if (radioValue == 'MG1'){
                 window.location.href = '../mg1.html'
             }
-
             if (radioValue == 'MM1'){
                 window.location.href = '../mm1.html'
             }
         }
-
 
     </script>
 </body>
