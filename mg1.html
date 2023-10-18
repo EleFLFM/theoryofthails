@@ -102,11 +102,14 @@
 
         <div class="seleccion">
 
-            <input class="" type="radio" name="modelo" required id="gridRadios1" value="MGM" onclick="redireccionar()"Checked >
-            <label for="gridRadios1">MGM</label>
+            <input class="" type="radio" name="modelo" required id="gridRadios1" value="MG1" onclick="redireccionar()"Checked >
+            <label for="gridRadios1">MG1</label>
             
-            <input class="" type="radio" name="modelo" required id="gridRadios2" value="MMC" onclick="redireccionar()">
+            <input class="" type="radio" name="modelo" required id="gridRadios2" value="MCM" onclick="redireccionar()">
             <label for="gridRadios2">MCM</label>
+
+            <input class="" type="radio" name="modelo" required id="gridRadios3" value="MM1" onclick="redireccionar()">
+            <label for="gridRadios3">MM1</label>
             
           </div>
         <button onclick="calcularMG1()"><span>Calcular</span></button>
@@ -159,16 +162,18 @@ function redireccionar() {
             // Obtén el valor seleccionado del radio
             var radioValue = document.querySelector('input[name="modelo"]:checked').value;
 
-            if (radioValue === 'MMC') {
+            if (radioValue === 'MCM') {
                 // Redirecciona a la página deseada
-                window.location.href = '../index.html';
+                window.location.href = '../mcm.html';
             }
 
-            if (radioValue == 'MGM'){
+            if (radioValue == 'MG1'){
                 window.location.href = '../mg1.html'
             }
+            if (radioValue == 'MM1'){
+                window.location.href = '../mm1.html'
+            }
         }
-        
     </script>
 </body>
 </html>
