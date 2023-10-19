@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>MODELO MCM</title>
+    <title>MODELO MMC</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -61,7 +61,7 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="mg1.html">MG1</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="mcm.html">MCM</a>
+                            <a class="nav-link" href="MMC.html">MMC</a>
                         </li>
                     </ul>
                 </div>
@@ -171,7 +171,7 @@ https://templatemo.com/tm-559-zay-shop
     </div> -->
   
     <div class="modelo">
-        <h1>Modelo MCM</h1>
+        <h1>Modelo MMC</h1>
         <label for="llegada">Tasa de llegada (λ):</label>
         <input type="text" id="llegada" required placeholder="Tasa de llegada por hora">
         <label for="servidores">Número de servidores (c):</label>
@@ -180,7 +180,7 @@ https://templatemo.com/tm-559-zay-shop
         <input type="text" id="atencion" required placeholder="Tasa de servicio por hora por servidor">
         
           
-        <button onclick="calcularMCM()"><span>Calcular</span></button>
+        <button onclick="calcularMMC()"><span>Calcular</span></button>
         <h2>Resultados:</h2>
         <p>Cuantos clientes hay en el sistema (Ls): <span id="clienestesistema"></span></p>
         <p>Cantidad de clientes en la cola (Lq): <span id="clientesEnCola"></span></p>
@@ -194,7 +194,7 @@ https://templatemo.com/tm-559-zay-shop
 </html>
 
     <script>
-        function calcularMCM() {
+        function calcularMMC() {
             const llegada = parseFloat(document.getElementById("llegada").value);
             const servidores = parseInt(document.getElementById("servidores").value);
             const atencion = parseFloat(document.getElementById("atencion").value);
@@ -214,8 +214,8 @@ https://templatemo.com/tm-559-zay-shop
 
             document.getElementById("clientesEnCola").textContent = Lq.toFixed(2) + " Clientes";
             document.getElementById("probabilidadSistemaVacio").textContent = P0().toFixed(4);
-            document.getElementById("tiempoEsperaPromedio").textContent = (W.toFixed(2)) + " Horas - " + (60 * W.toFixed(2)) + " Minutos";
-            document.getElementById("tiempoEsperaCola").textContent =(Wq.toFixed(2)) + " Horas - " + (60 * Wq.toExponential(2)) + " Minutos";
+            document.getElementById("tiempoEsperaPromedio").textContent = (W.toFixed(2)) + " Horas - " + (60 * W).toFixed(2) + " Minutos";
+            document.getElementById("tiempoEsperaCola").textContent =(Wq.toFixed(2)) + " Horas - " + (60 * Wq.toExponential(2)).toFixed(2) + " Minutos";
             document.getElementById("usoServidor").textContent = ((1-P0()) * 100).toFixed(2) + "%";
             document.getElementById("clienestesistema").textContent = Ls.toFixed(2) + " Clientes";
         }
